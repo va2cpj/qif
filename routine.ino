@@ -2019,10 +2019,11 @@ void TimerHandler()
     }
   }
 
-  // Control PWCTRL if TYPE != SWITCH
+  // Control PWCTRL if TYPE != SWITCH & update current sense
   if (TYPE != SWITCH)
   {
     digitalWrite(PWCTRL, anyActive ? ON : OFF);
+    Isense = analogRead(analogPins[0]);                                               // Analog input A0
   }
 }
 
@@ -2185,7 +2186,7 @@ void UpdatePWMResume()
       pwmPendingResume[ch] = false;
     }
 
-    // Check if current channel has active PWM
+    // Check if the current channel has active PWM
     if (pwmDuty[ch] > 0)
       anyActive = true;
   }
