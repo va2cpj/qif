@@ -1,1 +1,1 @@
-Sailing boat control automation system
+Sailing boat control automation system.
